@@ -1,0 +1,27 @@
+import java.util.HashMap;
+import java.util.Map;
+
+
+public class ReviewItems {
+	public static Map<Integer, String> testMapIndex;
+
+	public static void main(String[] args) {
+
+	testMapIndex = new HashMap<>();
+	populateTestMapIndex();
+	System.out.println(testMapIndex);
+	
+	
+	
+	
+	}
+
+	public static void populateTestMapIndex() {
+		//populate HashMap
+		testMapIndex.put(1, "One");
+		testMapIndex.put(2, "Two");
+		testMapIndex.put(3, "Three");
+		testMapIndex.put(4, "Four");
+		testMapIndex.putIfAbsent(8, "Eight");
+	}
+}

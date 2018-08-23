@@ -1,0 +1,52 @@
+import java.util.HashMap;
+import java.util.Map;
+
+
+public class ReviewItems {
+	public static Map<Integer, String> testMapIndex;
+	public static Map<String, String> testMapNames;
+
+	public static void main(String[] args) {
+
+	String testKeyName = "dog";
+	int testIndex = 4;
+	
+	testMapIndex = new HashMap<>();
+	populateTestMapIndex();
+	printStuff(testMapIndex, testMapIndex.containsKey(testIndex));
+	
+	testMapNames = new HashMap<>();
+	populateTestMapNames();
+	printStuff(testMapNames, testMapNames.containsKey(testKeyName));
+	
+	
+	}
+	
+	
+	public static void printStuff(Map temp, boolean found) {
+		System.out.println("The map includes: " + temp);
+		System.out.println("The map has " + temp.size() + " elements");		
+		System.out.println("The key was found: " + found);
+	}
+	
+	public static void populateTestMapIndex() {
+		//populate HashMap
+		testMapIndex.put(1, "One");
+		testMapIndex.put(2, "Two");
+		testMapIndex.put(3, "Three");
+		testMapIndex.put(4, "Four");
+		testMapIndex.putIfAbsent(8, "Eight");
+	}
+	
+	public static void populateTestMapNames() {
+		testMapNames.put("cat", "Amelia");
+		testMapNames.put("dog", "Sherlock");
+		testMapNames.put("sister", "Jesica");
+		testMapNames.put("mom", "Linda");
+		testMapNames.put("brother", "Brad");
+		testMapNames.put("grandma", "Lillian");
+		testMapNames.put("grandpa", "Lloyd");
+		testMapNames.put("friend", "Lisa");
+		testMapNames.put("nephew", "Graham");
+	}
+}

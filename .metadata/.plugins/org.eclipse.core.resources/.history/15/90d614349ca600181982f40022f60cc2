@@ -1,0 +1,83 @@
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.Iterator;
+
+
+public class ReviewItems {
+	public static Map<Integer, String> testMapIndex;
+	public static Map<String, String> testMapNames;
+	public static Map<String, Double> testMapCalc;
+
+	public static void main(String[] args) {
+
+	String testKeyName = "friend";
+	int testIndex = 4;
+	String testValue = "Graham";
+	
+	testMapIndex = new HashMap<>();
+	populateTestMapIndex();
+	printStuff(testMapIndex, testMapIndex.containsKey(testIndex), testMapIndex.get(testIndex), testMapIndex.containsValue(testValue));
+	testMapIndex.put(testIndex, "I am different now");
+	printStuff(testMapIndex, testMapIndex.containsKey(testIndex), testMapIndex.get(testIndex), testMapIndex.containsValue(testValue));
+	testMapIndex.remove(testIndex);
+	printStuff(testMapIndex, testMapIndex.containsKey(testIndex), testMapIndex.get(testIndex), testMapIndex.containsValue(testValue));
+	
+	testMapNames = new HashMap<>();
+	populateTestMapNames();
+	printStuff(testMapNames, testMapNames.containsKey(testKeyName), testMapNames.get(testKeyName), testMapNames.containsValue(testValue));
+	testMapNames.put(testKeyName, "Ashlee");
+	printStuff(testMapNames, testMapNames.containsKey(testKeyName), testMapNames.get(testKeyName), testMapNames.containsValue(testValue));
+	
+	testMapCalc = new HashMap<>();
+	populateTestMapCalc();
+	}
+	
+	
+	public static void printStuff(Map temp, boolean foundKey, String itemAtKey, boolean foundValue) {
+		Set<String> stringSet = temp.keySet();
+		Collection<String> stringCollection = temp.values();
+		
+		System.out.println("The map includes: " + temp);
+		System.out.println("The map has " + temp.size() + " elements");		
+		System.out.println("The key was found: " + foundKey);
+		System.out.println("The value was found: " + foundValue);
+		System.out.println("The item at the key: " + itemAtKey);
+		System.out.println("Set of strings in map: " + stringSet);
+		System.out.println("Collection of strings in map: " + stringCollection);
+	}
+	
+	public static void populateTestMapIndex() {
+		//populate HashMap
+		testMapIndex.put(1, "One");
+		testMapIndex.put(2, "Two");
+		testMapIndex.put(3, "Three");
+		testMapIndex.put(4, "Four");
+		testMapIndex.putIfAbsent(8, "Eight");
+	}
+	
+	public static void populateTestMapNames() {
+		testMapNames.put("cat", "Amelia");
+		testMapNames.put("dog", "Sherlock");
+		testMapNames.put("sister", "Jesica");
+		testMapNames.put("mom", "Linda");
+		testMapNames.put("brother", "Brad");
+		testMapNames.put("grandma", "Lillian");
+		testMapNames.put("grandpa", "Lloyd");
+		testMapNames.put("friend", "Lisa");
+		testMapNames.put("nephew", "Graham");
+	}
+
+	public static void populateTestMapCalc() {
+		testMapCalc.put("Jesica", 10000.00);
+		testMapCalc.put("Graham", 60000.00);
+		testMapCalc.put("Sherlock", 50000.00);
+		testMapCalc.put("Linda", 100000.00);
+	}
+	public static void makingStuffHappen(Map temp) {
+		temp.forEach((name, salary) -> {
+			System.out.println(name + " => " + salary);
+		});
+	}
+}
